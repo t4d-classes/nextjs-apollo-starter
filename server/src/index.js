@@ -1,10 +1,12 @@
-// Uncomment the following for no SSL
-import http from 'http';
+// Uncomment the following line for no SSL
+// import http from 'http';
 // Uncomment the following for SSL
-// import https from 'https';
-// import path from 'path';
-// import fs from 'fs';
+// SSL Start
+import https from 'https';
+import path from 'path';
+import fs from 'fs';
 import dotenv from 'dotenv';
+// SSL End
 
 dotenv.config();
 
@@ -14,17 +16,19 @@ import { apollo } from './apollo';
 
 logger.info(`current environment: ${process.env.NODE_ENV}`);
 
-// Uncomment the following for no SSL
-const server = http.createServer(app);
+// Uncomment the following line for no SSL
+// const server = http.createServer(app);
 
 // Uncomment the following for SSL
-// const server = https.createServer(
-//   {
-//     key: fs.readFileSync(path.resolve('./ssl/server.key')),
-//     cert: fs.readFileSync(path.resolve('./ssl/server.cert')),
-//   },
-//   app,
-// );
+// SSL Start
+const server = https.createServer(
+  {
+    key: fs.readFileSync(path.resolve('./ssl/server.key')),
+    cert: fs.readFileSync(path.resolve('./ssl/server.cert')),
+  },
+  app,
+);
+// SSL End
 
 apollo.installSubscriptionHandlers(server);
 

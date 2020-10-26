@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
-import { concatPagination } from '@apollo/client/utilities';
-// import https from 'https';
+// Uncomment the following line for SSL
+import https from 'https';
 
 let apolloClient;
 
@@ -11,26 +11,20 @@ function createApolloClient() {
     link: new HttpLink({
       credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
 
-      // Uncomment the following for no SSL
-      uri: 'http://localhost:5000/graphql', // Server URL (must be absolute)
+      // Uncomment the following line for no SSL
+      // uri: 'http://localhost:5000/graphql', // Server URL (must be absolute)
 
       // Uncomment the following for SSL
-      // uri: 'http://localhost:5000/graphql', // Server URL (must be absolute)
-      // fetchOptions: {
-      //   agent: new https.Agent({
-      //     rejectUnauthorized: false,
-      //   }),
-      // },
-    }),
-    cache: new InMemoryCache({
-      typePolicies: {
-        Query: {
-          fields: {
-            allPosts: concatPagination(),
-          },
-        },
+      // SSL Start
+      uri: 'http://localhost:5000/graphql', // Server URL (must be absolute)
+      fetchOptions: {
+        agent: new https.Agent({
+          rejectUnauthorized: false,
+        }),
       },
+      // SSL End
     }),
+    cache: new InMemoryCache(),
   });
 }
 
