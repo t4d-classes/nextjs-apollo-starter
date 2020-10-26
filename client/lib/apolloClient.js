@@ -16,7 +16,7 @@ function createApolloClient() {
 
       // Uncomment the following for SSL
       // SSL Start
-      uri: 'http://localhost:5000/graphql', // Server URL (must be absolute)
+      uri: 'https://localhost:5000/graphql', // Server URL (must be absolute)
       fetchOptions: {
         agent: new https.Agent({
           rejectUnauthorized: false,
