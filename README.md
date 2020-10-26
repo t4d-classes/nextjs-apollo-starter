@@ -40,7 +40,7 @@ To view the GraphQL Playground, open a web browser, and navigate to: `https://lo
 
 To view the REST API, open a web browser, and navigate to: `http://localhost:5050`
 
-If SSL does not work for you on maxOS, you will need to import the `server.cert` file into your keychain and trust all of the services.
+If SSL does not work for you on macOS, you will need to import the `server.cert` file into your keychain and trust all of the services. Here is a [blog post and video](https://tosbourn.com/getting-os-x-to-trust-self-signed-ssl-certificates/) which will explain how to do it.
 
 If you cannot get the SSL to work, then you will need to enable the non-SSL version of the application.
 
