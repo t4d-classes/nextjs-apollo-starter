@@ -2,9 +2,11 @@
 
 ## Server Setup
 
-If you are using Yarn, simply change into the `server` folder and run the following command:
+If you are using Yarn, simply change into the `server` folder and run the following commands:
 
 ```bash
+yarn install
+
 yarn start
 ```
 
@@ -18,9 +20,11 @@ npm start
 
 ## Client Setup
 
-If you are using Yarn, simply change into the `client` folder and run the following command:
+If you are using Yarn, simply change into the `client` folder and run the following commands:
 
 ```bash
+yarn install
+
 yarn run dev
 ```
 
